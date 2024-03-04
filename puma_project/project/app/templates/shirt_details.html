@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ w.name }}</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    body {
+      padding: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .size-buttons .btn {
+      margin-right: 10px;
+    }
+
+    .btn-group-toggle .active {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="{{ w.image }}" alt="{{ w.name }}" class="img-fluid">
+      </div>
+      <div class="col-md-6">
+        <h2 class="mt-4"><b>{{ w.name }}</b></h2>
+        <p class="lead">₹{{ w.price }}</p>
+        <p><b>Color : </b> {{ w.color }}</p>
+        <p><b>Description : </b> {{ w.description }}</p>
+
+        <form action="{% url 'add_to_cart_shirt' w.id %}" method="post" class="mt-4">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="quantity">Select quantity:</label>
+            <select name="quantity" class="form-control">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+            <div class="size-buttons mt-3">
+              <label for="size">Select Item size:</label>
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-secondary">
+                  <input type="radio" name="size" id="sizeS" value="S"> S
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="size" id="sizeM" value="M"> M
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="size" id="sizeL" value="L"> L
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="size" id="sizeXL" value="XL"> XL
+                </label>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Add to Cart</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Add JavaScript to highlight the selected size button
+    const sizeButtons = document.querySelectorAll('.btn-group-toggle .btn');
+
+    sizeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        sizeButtons.forEach(b => b.classList.remove('active'));
+        button.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

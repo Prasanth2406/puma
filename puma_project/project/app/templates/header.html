@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;;
+    }
+
+    .navi {
+      background-color: black;
+      height: 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      
+    }
+
+    .links {
+      display: flex;
+      margin-right: 20px;
+      flex-grow: 1; /* Add some spacing between links and search form */
+    }
+
+    .links a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      margin-right: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .links a:hover {
+      color: lightgray;
+    }
+
+    /* Style the search form */
+    form {
+      display: flex;
+      align-items: center;
+      flex-grow: 1.5;
+    }
+
+    input[type="text"] {
+      border-radius: 4px;
+      padding: 10px;
+      margin-right: 10px; /* Add spacing between input and button */
+    }
+
+    input[type="submit"] {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      /* Add any additional styling you prefer for the submit button */
+    }
+  </style>
+</head>
+<body>
+  <div class="navi">
+    <img src="{% static '/images/logo.png' %}" alt="" width="5%">
+    <div class="links">
+      <a href="{% url 'home' %}"><p>Home</p></a>
+      <a href="{% url 'about' %}"><p>About</p></a>
+      <a href="{% url 'customer' %}"><p>Customer</p></a>
+      
+    </div>
+    <form action="{% url 'search_result' %}">
+      <input type="q" name="q" type="text" size="50" placeholder="🔍 Search your shoes...">
+      <input type="submit" name="submit" value="">
+    </form>
+    <div class="log" style="justify-content: space-between;"><a href="{% url '' %}" style="color: white;text-decoration: none;">Logout</a>
+      <a href="{% url 'signup' %}" style="color: white;text-decoration: none;">SignUp</a></div>
+  </div>
+</body>
+</html>

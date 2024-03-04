@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Optional: Add your custom styles here -->
+  <style>
+    body {
+      background-color: #f8f9fa; /* Optional: Set your preferred background color */
+    }
+    .login-container {
+      max-width: 400px;
+      margin: auto;
+      margin-top: 15%;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container login-container">
+    <form action="" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="{{ form.username.id_for_label }}">Username</label>
+        {{ form.username }}
+      </div>
+      <div class="form-group">
+        <label for="{{ form.password.id_for_label }}">Password</label>
+        {{ form.password }}
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary" name="submit">Login</button>
+      </div>
+    </form><br>
+    <div class="text-center">
+      <p>Don't have an account? <a href="{% url 'signup' %}">Register</a></p>
+    </div>
+  </div>
+</body>
+</html>

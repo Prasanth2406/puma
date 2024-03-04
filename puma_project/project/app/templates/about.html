@@ -1,0 +1,18 @@
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  {% include 'header.html' %}
+  <img src="{% static '/images/a1.png' %}" alt="" width="100%">
+  <img src="{% static '/images/a2.png' %}" alt="" width="100%">
+  <img src="{% static '/images/a3.png' %}" alt="" width="100%">
+  <img src="{% static '/images/a4.png' %}" alt="" width="100%">
+  <div>
+    <video src="{% static 'video/puma.mp4' %}" width="100%"  autoplay style="padding-top: 0.3%;">
+  </div>
+</body>
+</html>

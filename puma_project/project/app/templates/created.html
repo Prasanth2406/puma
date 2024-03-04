@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Page</title>
+  <!-- Add Bootstrap CSS link or use a CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: #f8f9fa; /* Bootstrap default background color */
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+    }
+
+    .payment-form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+      color: #007bff; /* Bootstrap primary color */
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="payment-form mx-auto">
+      <h3 class="text-center mb-4">Payment Details</h3>
+      <p>Your order number is <strong>{{ order_id }}</strong></p>
+      <p>Your pay amount is <strong>Rs. {{ amountring }}</strong></p>
+      <form action="{% url 'payment_process' order_id amount %}" method="POST">
+        {% csrf_token %}
+        <script
+          src="https://checkout.razorpay.com/v1/checkout.js" 
+          data-key="{{ public_key }}"
+          data-amount="{{ amount }}"
+          data-buttontext="Pay with Razorpay"
+          data-name="Online Shop"
+          data-description=""
+          data-image="https://your-awesome-site.com/your_logo.jpg"
+          data-prefill.name="Name"
+          data-prefill.email="test@test.com"
+          data-theme.color="#007bff"
+          data-notes.address="Bangalore"
+        ></script>
+        <input type="hidden" value="Hidden Element" name="hidden">
+      </form>
+    </div>
+  </div>
+
+  <!-- Add Bootstrap JS and Popper.js scripts (required for some Bootstrap features) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-Uo7T3pR0qNdg6AUiZ7BpJTC0wr/bfQZQ8UqqNEbjTf2NfNljoIudPN4QFckI2Jj" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

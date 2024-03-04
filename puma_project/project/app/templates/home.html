@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .dot {
+      height: 115px;
+      width: 115px;
+      background-color: black;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 1%;
+      border: 5px solid red; /* Added border property for a red border */
+      position: relative;
+      text-align: center;
+    }
+    .dot b {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+    }
+    .trending {
+      text-align: center;
+      justify-content: space-between;
+      margin-top: 20px; /* Added margin-top for spacing */
+    }
+    .image-container {
+      position: relative;
+    }
+    .image-container1 {
+      position: relative;
+    }
+
+    .button-on-image {
+      
+      height: 10%;
+      width: 30%;
+      position: absolute;
+      top: 87%;
+      left: 18%;
+      transform: translate(-50%, -50%);
+      background-color: deepskyblue;
+      border-radius: 5%;
+    }
+    .button-on-image1 {
+      
+      height: 8%;
+      width: 10%;
+      position: absolute;
+      top: 64%;
+      left: 84%;
+      transform: translate(-50%, -50%);
+      background-color: black;
+      border-radius: 5%;
+    }
+    .button-on-image2 {
+      
+      height: 8%;
+      width: 10%;
+      position: absolute;
+      top: 63%;
+      left: 7%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      border-radius: 5%;
+    }
+    .button-on-image3 {
+      
+      height: 8%;
+      width: 15%;
+      position: absolute;
+      top: 63%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      border-radius: 5%;
+    }
+
+    .button-on-image4 {
+      
+      height: 8%;
+      width: 10%;
+      position: absolute;
+      top: 60%;
+      left: 8%;
+      transform: translate(-50%, -50%);
+      background-color: black;
+      border-radius: 5%;
+    }
+  </style>
+</head>
+<body>
+  {% include 'header.html' %}
+  <div>
+    <h2 style="font-family: Arial, Helvetica, sans-serif;" align="center">TRENDING CATEGORIES</h2>
+    <div class="trending">
+      <a href="{% url 'shoe' %}"><span class="dot"><b>SNEAKERS</b></span></a>
+      <a href="{% url 'Gymandaccessories' %}"><span class="dot"><b>GYM BAGS CASUALS</b></span></a>
+      <a href="{% url 'shoe' %}"><span class="dot"><b>RUNNING</b></span></a>
+      <a href="{% url 'winter' %}"><span class="dot"><b>WINTERWEAR</b></span></a>
+      <a href="{% url 'shirt' %}"><span class="dot"><b style="white-space: nowrap;">T-SHIRTS</b></span></a>
+      <a href="{% url 'motor' %}"><span class="dot"><b>MOTORSPORT</b></span></span></a>
+    </div>
+  </div>
+  <div class="image-container1">
+    <img src="{% static '/images/puma05.png' %}" alt="" width="100%" style="padding-top: 2%;">
+    <a href="{% url 'ney' %}"><button class="button-on-image2" ><b style="font-family: Arial, Helvetica, sans-serif; color: black;">Shop</b></button></a>
+    <a href="{% url 'neyvideo' %}"><button class="button-on-image3" ><b style="font-family: Arial, Helvetica, sans-serif; color: black;">Explore Football</b></button></a></div>
+
+  <div class="image-container">
+    <img src="{% static '/images/puma01.png' %}" alt="" width="100%" style="padding-top: 2%;">
+    <a href="{% url 'shoe' %}"><button class="button-on-image" ><b style="font-family: Arial, Helvetica, sans-serif; color: white;">Shop</b></button></a>
+  </div>
+  
+  <div class="image-container">
+    <img src="{% static '/images/puma5.png' %}" width="100%" alt="" style="padding-top: 2%;">
+    <a href="{% url 'cricket' %}"><button class="button-on-image4" ><b style="font-family: Arial, Helvetica, sans-serif; color: white;">Know More</b></button></a>
+  </div>
+  
+  <div class="image-container1">
+    <img src="{% static '/images/puma02.png' %}" width="100%" alt="" style="padding-top: 2%;">
+    <a href="{% url 'stepin' %}"><button class="button-on-image1" ><b style="font-family: Arial, Helvetica, sans-serif; color: white;">About</b></button></a>
+  </div>
+</body>
+</html>
+

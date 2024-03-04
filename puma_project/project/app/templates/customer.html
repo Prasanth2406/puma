@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Information</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: #f8f9fa; /* Light gray background */
+      font-family: 'Helvetica Neue', sans-serif;
+    }
+
+    .container {
+      background-color: #ffffff; /* White container background */
+      border-radius: 8px; /* Rounded corners */
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+      padding: 30px; /* Add padding inside the container */
+      margin: 50px auto; /* Center the container */
+      max-width: 600px; /* Limit container width for better readability */
+    }
+
+    h2 {
+      color: #007bff; /* Blue color for heading */
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 16px; /* Standard font size */
+      line-height: 1.5; /* Improve readability with a slightly larger line height */
+      margin-bottom: 15px; /* Add spacing between paragraphs */
+    }
+
+    b {
+      color: #333; /* Dark color for bold text */
+    }
+  </style>
+</head>
+<body>
+  {% include 'header.html' %}
+  <div class="container" style="margin-top: 10%;">
+    <h2>Customer Information</h2>
+    <div class="row">
+      <div class="col-md-9" style="padding-left: 12%;">
+        <p><b>Customer Name:</b> {{ user.username }}</p>
+        <p><b>Email:</b> {{ user.email }}</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
